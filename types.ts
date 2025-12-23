@@ -10,6 +10,7 @@ export interface ChatMessage {
   text: string;
   timestamp: number;
   suggestions?: string[]; // New field for follow-up questions
+  isThinking?: boolean; // Track if the message was generated using Deep Thinking mode
 }
 
 export interface User {
@@ -18,6 +19,7 @@ export interface User {
   fullName: string;
   id: string;
   joinedAt: number;
+  avatarUrl?: string; // URL/Base64 of the custom avatar
 }
 
 export interface LocationData {
@@ -26,6 +28,8 @@ export interface LocationData {
   title: string;
   description: string;
   coordinates: { x: number; y: number }; // Percentage 0-100 for stylized map
+  lat: number; // Real Latitude
+  lng: number; // Real Longitude
   image: string;
   details: string;
   audio?: string; // URL to audio narration
